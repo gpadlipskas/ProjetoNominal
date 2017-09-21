@@ -11,16 +11,29 @@ public class ClienteBO {
 		}
 		
 		
+		cli.getNumeroInstalacao();
+		
+		//new Integer - dando parse de String para Integer usando o construtor do Integer.
+		//Integer numInstalacao = new Integer(cli.getNumeroInstalacao());
+		
+		//Devolvendo um int com o método intValue().
+		//numInstalacao.intValue();
+		
 		ClienteDAO dao = new ClienteDAO();
-		if(dao.selecionarCliente(cli.getCpf()).getCpf()>0){
+		Cliente clienteResult = dao.selecionarCliente(cli.getNumeroInstalacao());
+		Integer numInstalacaoCliente = new Integer(clienteResult.getNumeroInstalacao());
+		
+		
+		if(numInstalacaoCliente.intValue() > 0){
+		
 			dao.fechar();
-			return "Este cliente j� existe!";
+			return "Este cliente ja existe!";
 		}
 		String x= dao.inserirCliente(cli);
 		dao.fechar();
 		return x; 
 	}
-	public static Cliente consultarCodigo(int numero) throws Exception{
+	public static Cliente consultarCodigo(String numero) throws Exception{
 		if(numero<1){
 			return new Cliente();
 		}

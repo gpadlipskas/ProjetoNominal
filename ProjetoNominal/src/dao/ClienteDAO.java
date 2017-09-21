@@ -17,7 +17,7 @@ public class ClienteDAO {
 	
 	public String fechar () throws Exception {
 		con.close();
-		return "Conex�o fechada com sucesso";
+		return "Conexao fechada com sucesso";
 		
 	}
 	
