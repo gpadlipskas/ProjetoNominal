@@ -4,16 +4,15 @@ import java.util.Date;
 
 public class Funcionario extends PessoaFisica{
 	
-	private String numeroMatricula;
+	private int numeroMatricula;
 	private String cargo;
 	private double salario;
 	
 	public String getAll() {
-		return super.getAll() + "\n" + numeroMatricula + "\n" + cargo + "\n" + "\n" + salario;
+		return numeroMatricula + "\n" + cargo + "\n" + "\n" + salario;
 	}
 	
-	public void setAll (int i, String n, String em, String t, Endereco e, String c, String r, Date dn, String nm, String cg, double s) {
-		super.setAll(i, n, em, t, e);
+	public void setAll (int nm, String cg, double s) {
 		numeroMatricula=nm;
 		cargo=cg;
 		salario=s;
@@ -24,15 +23,15 @@ public class Funcionario extends PessoaFisica{
 		super();
 	}
 	
-	public Funcionario(String numeroMatricula, String cargo, double salario) {
+	public Funcionario(int numeroMatricula, String cargo, double salario) {
 		this.numeroMatricula = numeroMatricula;
 		this.cargo = cargo;
 		this.salario = salario;
 	}
-	public String getNumeroMatricula() {
+	public int getNumeroMatricula() {
 		return numeroMatricula;
 	}
-	public void setNumeroMatricula(String numeroMatricula) {
+	public void setNumeroMatricula(int numeroMatricula) {
 		this.numeroMatricula = numeroMatricula;
 	}
 	public String getCargo() {
