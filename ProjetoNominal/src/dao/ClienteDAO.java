@@ -21,7 +21,7 @@ public class ClienteDAO {
 		
 	}
 	
-	public String gravar(Cliente cliente) throws Exception {
+	public String inserirCliente(Cliente cliente) throws Exception {
 		PreparedStatement estrutura = null;
 		estrutura = con.prepareStatement
 				("INSERT INTO Cliente (id, nome, email, telefone, cpf, rg, dataNascimento) VALUES(?,?,?,?,?,?,?)");
@@ -39,30 +39,28 @@ public class ClienteDAO {
 
 	}
 	
-	public PessoaFisica getCliente(int n) throws Exception{
-		PessoaFisica pf = new PessoaFisica();
+	public Cliente selecionarCliente(int n) throws Exception{
+		Cliente cliente = new Cliente();
 		PreparedStatement estrutura = null;
 		estrutura = con.prepareStatement
 				("SELECT * FROM Cliente WHERE id = ?");
 		estrutura.setInt (1,n);
 		ResultSet resultado = estrutura.executeQuery();							
 		if(resultado.next()) {
-			pf.setNome(resultado.getString("nome"));
-			pf.setEmail(resultado.getString("telefone"));
-			pf.setTelefone(resultado.getString("telefone"));
-			pf.setCpf(resultado.getString("cpf"));
-			pf.setRg(resultado.getString("rg"));
-			pf.setDataNascimento(resultado.getString("data_nascimento"));
-
-
+			cliente.setNome(resultado.getString("nome"));
+			cliente.setEmail(resultado.getString("telefone"));
+			cliente.setTelefone(resultado.getString("telefone"));
+			cliente.setCpf(resultado.getString("cpf"));
+			cliente.setRg(resultado.getString("rg"));
+			cliente.setDataNascimento(resultado.getString("data_nascimento"));
 		}
 		resultado.close();
 		estrutura.close();
-		return pf;
+		return cliente;
 
 	}
 	
-	public int delete (int num) throws Exception {
+	public int deletarCliente(int num) throws Exception {
 		PreparedStatement estrutura = con.prepareStatement("DELETE FROM Pessoa WHERE id = ?");
 		estrutura.setInt(1, num);
 		int i = estrutura.executeUpdate();
@@ -72,11 +70,11 @@ public class ClienteDAO {
 	}
 	
 	
-	public int atualizarEmail (String x, int y) throws Exception{
+	public int atualizarCliente (Cliente cliente) throws Exception{
 		PreparedStatement estrutura = con.prepareStatement
 		("UPDATE Pessoa SET email = ? WHERE NR_CLIENTE =?");
-		estrutura.setString(1,  x);
-		estrutura.setInt(2, y);
+		estrutura.setString(1, cliente.getEmail());
+		estrutura.setInt(2, cliente.getId());
 		int z = estrutura.executeUpdate();
 		return z;
 	}
