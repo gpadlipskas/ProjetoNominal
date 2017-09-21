@@ -10,7 +10,7 @@ public class Cliente {
         
     }
     
-    public void setAll(String c, String r, String dn, String ac, String ni, String dp) {
+    public void setAll( String ac, String ni, String dp) {
         atualizacaoCadastral=ac;
         numeroInstalacao=ni;
         debitoPendente=dp;

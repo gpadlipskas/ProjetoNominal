@@ -15,11 +15,14 @@ public class GravarCliente {
 	public static void main(String[] args) {
 		try {
 	Cliente cliente = new Cliente();
-	cliente.setAll(c, r, dn, ac, ni, dp);
+	cliente.setAll(
+			texto("Digite a atualizacao cadastral"),
+			texto ("Digite o numero da inscricao:"),
+			texto ("Digite o debito pendente: "));
 	
 	
 	
-	cliente.setCpf(JOptionPane.showInputDialog("CPF"));
+	cliente.setNumeroInstalacao(texto("numero_instalacao"));
 	System.out.println(ClienteBO.adicionarCliente(cliente));
 }catch(Exception e) {
 	e.printStackTrace();
