@@ -24,8 +24,9 @@ public class Cliente extends PessoaFisica{
 		super();
 	}
 	public Cliente(int id, String nome, String email, String telefone, Endereco endereco, String cpf, String rg,
-			Date dataNascimentp, Pessoa pessoa, Date atualizacaoCadastral, Fatura fatura, String debitoPendente) {
-		super(id, nome, email, telefone, endereco, cpf, rg, dataNascimentp, pessoa);
+			Date dataNascimento, Pessoa pessoa, Date atualizacaoCadastral, Fatura fatura, String debitoPendente) {
+		//decidir se é date ou String
+		super(id, nome, email, telefone, endereco, cpf, rg, dataNascimento, pessoa);
 		this.atualizacaoCadastral = atualizacaoCadastral;
 		this.fatura = fatura;
 		this.debitoPendente = debitoPendente;

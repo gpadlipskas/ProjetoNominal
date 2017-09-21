@@ -20,7 +20,7 @@ public class PessoaJuridicaDAO {
 		
 		public String fechar () throws Exception {
 			con.close();
-			return "Conexão fechada com sucesso!";
+			return "Conexao fechada com sucesso!";
 			
 		}
 		
