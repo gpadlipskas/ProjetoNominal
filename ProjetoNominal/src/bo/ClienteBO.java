@@ -7,12 +7,12 @@ public class ClienteBO {
 	
 	public static String adicionarCliente(Cliente cli)throws Exception {
 		if (cli.getNome().length()>50){
-			return "Excedeu 50 caracteres";
+			return "Erro na validacao do Nome";
 		}
 		
 		
 		ClienteDAO dao = new ClienteDAO();
-		if(dao.selecionarCliente(cli.getId()).getId()>0){
+		if(dao.selecionarCliente(cli.getCpf()).getCpf()>0){
 			dao.fechar();
 			return "Este cliente já existe!";
 		}
