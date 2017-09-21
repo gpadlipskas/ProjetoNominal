@@ -50,7 +50,7 @@ public class PessoaFisicaDAO {
 		ResultSet resultado = estrutura.executeQuery();							
 		if(resultado.next()) {
 			pf.setNome(resultado.getString("nome"));
-			pf.setEmail(resultado.getString("telefone"));
+			pf.setEmail(resultado.getString("email"));
 			pf.setTelefone(resultado.getString("telefone"));
 			pf.setCpf(resultado.getString("cpf"));
 			pf.setRg(resultado.getString("rg"));
