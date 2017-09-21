@@ -34,7 +34,7 @@ public class ClienteBO {
 		return x; 
 	}
 	public static Cliente consultarCodigo(String numero) throws Exception{
-		if(numero.)<1){
+		if(Integer.parseInt(numero)<1){
 			return new Cliente();
 		}
 		ClienteDAO dao = new ClienteDAO();
