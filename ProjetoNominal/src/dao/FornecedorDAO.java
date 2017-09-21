@@ -2,8 +2,8 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-import beans.Cliente;
 import beans.Fornecedor;
 import conexao.ConexaoFactory;
 
@@ -52,7 +52,24 @@ public class FornecedorDAO {
 	        return i;
 	    }
 	    
-	    
+		public Fornecedor getFornecedor(String ni) throws Exception{
+			Fornecedor forn = new Fornecedor();
+			PreparedStatement estrutura = null;
+			estrutura = con.prepareStatement
+					("SELECT numero_contrato, vigencia_contrato, gerente_contrato FROM Fornecedor WHERE numero_contrato = ?");
+			estrutura.setString (1,ni);
+			ResultSet resultado = estrutura.executeQuery();							
+			if(resultado.next()) {
+				forn.setNumeroContrato(resultado.getString("numero_contrato"));
+				forn.setVigenciaContrato(resultado.getString("vigencia_contrato"));
+				forn.setGerenteContrato(resultado.getString("gerente_contrato"));	
+				
+			}
+			resultado.close();
+			estrutura.close();
+			return forn;
+
+		}
 	    
 	    
 }
