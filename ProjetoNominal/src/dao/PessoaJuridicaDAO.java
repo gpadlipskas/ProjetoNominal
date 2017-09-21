@@ -44,7 +44,7 @@ public class PessoaJuridicaDAO {
 
 		}
 		
-		public PessoaJuridica getCliente(int n) throws Exception{
+		public PessoaJuridica getPessoaJuridica(int n) throws Exception{
 			PessoaJuridica pj = new PessoaJuridica();
 			PreparedStatement estrutura = null;
 			estrutura = con.prepareStatement
@@ -57,7 +57,7 @@ public class PessoaJuridicaDAO {
 				pj.setTelefone(resultado.getString("telefone"));
 				pj.setNumeroContrato(resultado.getString("numero_contrato"));
 				pj.setRazaoSocial(resultado.getString("razao_social"));
-				pj.setCnpj(resultado.getString("cnj"));
+				pj.setCnpj(resultado.getString("cnpj"));
 				pj.setInscricaoEstadual(resultado.getString("inscricao_estadual"));
 
 
@@ -67,5 +67,25 @@ public class PessoaJuridicaDAO {
 			return pj;
 
 		}
+	
+		public int delete (int num) throws Exception {
+			PreparedStatement estrutura = con.prepareStatement("DELETE FROM Pessoa WHERE cnpj = ?");
+			estrutura.setInt(1, num);
+			int i = estrutura.executeUpdate();
+			estrutura.close();
+			return i;
+			
+		}
+		
+		public int atualizarInscricao (String x, String y) throws Exception{
+			PreparedStatement estrutura = con.prepareStatement
+			("UPDATE Pessoa SET inscricao_estadual = ? WHERE cnpj =?");
+			estrutura.setString(1,  x);
+			estrutura.setString(2, y);
+			int z = estrutura.executeUpdate();
+			return z;
+		}
+		
+		
 
 }
