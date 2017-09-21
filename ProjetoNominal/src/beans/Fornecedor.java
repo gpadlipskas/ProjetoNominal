@@ -1,33 +1,31 @@
 package beans;
 
-import java.util.Date;
-
 public class Fornecedor extends PessoaJuridica{
 	
 	private String numeroContrato;
-	private Date vigenciaContrato;
+	private String vigenciaContrato;
+	private String gerenteContrato;
 	
 	public String getAll() {
-		return super.getAll() + "\n" + numeroContrato + "\n" + vigenciaContrato;
+		return numeroContrato + "\n" + vigenciaContrato + gerenteContrato;
 		
 	}
 	
-	public void setAll (int i, String n, String em, String t, Endereco e,
-				String numeroContrato, String razaoSocial, String cnpj, String inscricaoEstadual, String nc, Date vc) {
-		super.setAll(i, n, em, t, e);
+	public void setAll (String nc, String vc, String gc) {
 		numeroContrato = nc;
 		vigenciaContrato = vc;
+		gerenteContrato = gc;
 	
 	}
 	
 	public Fornecedor() {
 		super();
 	}
-	public Fornecedor(int id, String nome, String email, String telefone, Endereco endereco, String numeroContrato,
-			String razaoSocial, String cnpj, String inscricaoEstadual, String numeroContrato2, Date vigenciaContrato) {
-		super(id, nome, email, telefone, endereco, numeroContrato, razaoSocial, cnpj, inscricaoEstadual);
-		numeroContrato = numeroContrato2;
+	public Fornecedor(String numeroContrato, String vigenciaContrato, String gerenteContrato) {
+		super();
+		this.numeroContrato = numeroContrato;
 		this.vigenciaContrato = vigenciaContrato;
+		this.gerenteContrato = gerenteContrato;
 	}
 	public String getNumeroContrato() {
 		return numeroContrato;
@@ -35,13 +33,21 @@ public class Fornecedor extends PessoaJuridica{
 	public void setNumeroContrato(String numeroContrato) {
 		this.numeroContrato = numeroContrato;
 	}
-	public Date getVigenciaContrato() {
+	public String getVigenciaContrato() {
 		return vigenciaContrato;
 	}
-	public void setVigenciaContrato(Date vigenciaContrato) {
+	public void setVigenciaContrato(String vigenciaContrato) {
 		this.vigenciaContrato = vigenciaContrato;
+	}
+	public String getGerenteContrato() {
+		return gerenteContrato;
+	}
+	public void setGerenteContrato(String gerenteContrato) {
+		this.gerenteContrato = gerenteContrato;
 	}
 	
 	
-
+	
 }
+	
+	
