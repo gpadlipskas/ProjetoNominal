@@ -1,6 +1,5 @@
-/bo/
-/teste/
-/excessao/
-/dao/
 /beans/
+/bo/
+/conexao/
+/dao/
 /testes/

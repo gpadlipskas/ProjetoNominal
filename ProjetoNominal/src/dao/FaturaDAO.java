@@ -71,6 +71,15 @@ public class FaturaDAO
         estrutura.close();
         return i;
     }
+    
+    public int atualizarPagamento(String pgto) throws Exception {
+        PreparedStatement estrutura = con.prepareStatement("update FATURA set PAGAMENTO = ?");
+        estrutura.setString(1, pgto);
+        int i = estrutura.executeUpdate();
+        estrutura.close();
+        return i;
+    }
+    
     //CREATE, SELECT, UPDATE FEITOS :)))))
 }
 

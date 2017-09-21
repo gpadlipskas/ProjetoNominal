@@ -39,7 +39,7 @@ public class ClienteDAO {
 		Cliente cliente = new Cliente();
 		PreparedStatement estrutura = null;
 		estrutura = con.prepareStatement
-				("SELECT * FROM Cliente WHERE cpf = ?");
+				("SELECT numero_instalacao, atualizacao_cadastral, debito_pendente FROM Cliente WHERE numero_instalacao = ?");
 		estrutura.setString (1,ni);
 		ResultSet resultado = estrutura.executeQuery();							
 		if(resultado.next()) {

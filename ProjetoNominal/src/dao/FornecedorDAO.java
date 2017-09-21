@@ -35,5 +35,24 @@ public class FornecedorDAO {
 		
 		}
 		
+	    public int delete(String nc) throws Exception {
+	        PreparedStatement estrutura = con.prepareStatement ("delete from Fornecedor where numero_contrato = ?");
+	        estrutura.setString(1, nc);
+	        int i = estrutura.executeUpdate();
+	        estrutura.close();
+	        return i;
 		
+}
+
+	    public int alterarGerente(String gerente) throws Exception {
+	        PreparedStatement estrutura = con.prepareStatement("update Fornecedor set gerente_contrato = ?");
+	        estrutura.setString(1, gerente);
+	        int i = estrutura.executeUpdate();
+	        estrutura.close();
+	        return i;
+	    }
+	    
+	    
+	    
+	    
 }
