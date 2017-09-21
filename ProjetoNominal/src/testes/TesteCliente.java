@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import beans.Cliente;
 import bo.ClienteBO;
 
-public class GravarCliente {
+public class TesteCliente {
 	
 	static String texto (String texto) {
 		return JOptionPane.showInputDialog(texto);
