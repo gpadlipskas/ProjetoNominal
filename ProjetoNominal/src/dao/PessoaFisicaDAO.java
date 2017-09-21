@@ -41,7 +41,7 @@ public class PessoaFisicaDAO {
 
 	}
 	
-	public PessoaFisica getCliente(int n) throws Exception{
+	public PessoaFisica getPessoaFisica(int n) throws Exception{
 		PessoaFisica pf = new PessoaFisica();
 		PreparedStatement estrutura = null;
 		estrutura = con.prepareStatement
