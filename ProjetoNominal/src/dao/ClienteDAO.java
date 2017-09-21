@@ -35,12 +35,12 @@ public class ClienteDAO {
 
 	}
 	
-	public Cliente selecionarCliente(String cpf) throws Exception{
+	public Cliente selecionarCliente(String ni) throws Exception{
 		Cliente cliente = new Cliente();
 		PreparedStatement estrutura = null;
 		estrutura = con.prepareStatement
 				("SELECT * FROM Cliente WHERE cpf = ?");
-		estrutura.setString (1,cpf);
+		estrutura.setString (1,ni);
 		ResultSet resultado = estrutura.executeQuery();							
 		if(resultado.next()) {
 			cliente.setNumeroInstalacao(resultado.getString("numero_instalacao"));
