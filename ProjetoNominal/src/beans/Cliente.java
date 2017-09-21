@@ -1,19 +1,18 @@
 package beans;
 
-public class Cliente extends PessoaFisica{
-    private String atualizacaoCadastral;
-    private Fatura fatura;
+public class Cliente {
+    private String numeroInstalacao;
+	private String atualizacaoCadastral;
     private String debitoPendente;
     
     public String getAll() {
-        return super.getAll() + "\n" + atualizacaoCadastral + "\n" + fatura + "\n" + debitoPendente;
+        return atualizacaoCadastral + "\n" + numeroInstalacao + "\n" + debitoPendente;
         
     }
     
-    public void setAll(int i, String n, String em, String t, Endereco e, String c, String r, String dn, String ac, Fatura f, String dp) {
-        super.setAll(i, n, em, t, e);
+    public void setAll(String c, String r, String dn, String ac, String ni, String dp) {
         atualizacaoCadastral=ac;
-        fatura=f;
+        numeroInstalacao=ni;
         debitoPendente=dp;
         
     }
@@ -21,11 +20,9 @@ public class Cliente extends PessoaFisica{
     public Cliente() {
         super();
     }
-    public Cliente(int id, String nome, String email, String telefone, Endereco endereco, String cpf, String rg,
-            String dataNascimentp, Pessoa pessoa, String atualizacaoCadastral, Fatura fatura, String debitoPendente) {
-        super(id, nome, email, telefone, endereco, cpf, rg, dataNascimentp, pessoa);
-        this.atualizacaoCadastral = atualizacaoCadastral;
-        this.fatura = fatura;
+    public Cliente(String numeroInstalacao, String atualizacaoCadastral, String debitoPendente) {
+        this.numeroInstalacao = numeroInstalacao;
+    	this.atualizacaoCadastral = atualizacaoCadastral;
         this.debitoPendente = debitoPendente;
     }
     public String getAtualizacaoCadastral() {
@@ -34,11 +31,11 @@ public class Cliente extends PessoaFisica{
     public void setAtualizacaoCadastral(String atualizacaoCadastral) {
         this.atualizacaoCadastral = atualizacaoCadastral;
     }
-    public Fatura getFatura() {
-        return fatura;
+    public String getNumeroInstalacao() {
+        return numeroInstalacao;
     }
-    public void setFatura(Fatura fatura) {
-        this.fatura = fatura;
+    public void setNumeroInstalacao(String numeroInstalacao) {
+        this.numeroInstalacao = numeroInstalacao;
     }
     public String getDebitoPendente() {
         return debitoPendente;

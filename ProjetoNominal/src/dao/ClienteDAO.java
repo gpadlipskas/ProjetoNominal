@@ -17,21 +17,17 @@ public class ClienteDAO {
 	
 	public String fechar () throws Exception {
 		con.close();
-		return "Conexão fechada com sucesso";
+		return "Conexï¿½o fechada com sucesso";
 		
 	}
 	
 	public String inserirCliente(Cliente cliente) throws Exception {
 		PreparedStatement estrutura = null;
 		estrutura = con.prepareStatement
-				("INSERT INTO Cliente (id, nome, email, telefone, cpf, rg, dataNascimento) VALUES(?,?,?,?,?,?,?)");
-		estrutura.setInt (1, cliente.getId());
-		estrutura.setString (2, cliente.getNome());
-		estrutura.setString (3, cliente.getEmail());
-		estrutura.setString(4, cliente.getTelefone());
-		estrutura.setString(5, cliente.getCpf());
-		estrutura.setString(6, cliente.getRg());
-		estrutura.setString(7, cliente.getDataNascimento());
+				("INSERT INTO Cliente (numero_instalacao, debito_pendente, atualizacao_cadastral) VALUES(?,?,?)");
+		estrutura.setString(1, cliente.getNumeroInstalacao());
+		estrutura.setString(2, cliente.getAtualizacaoCadastral());
+		estrutura.setString(3, cliente.getDebitoPendente());
 		estrutura.execute();
 		estrutura.close();
 		return "Gravado com sucesso";
@@ -47,12 +43,10 @@ public class ClienteDAO {
 		estrutura.setString (1,cpf);
 		ResultSet resultado = estrutura.executeQuery();							
 		if(resultado.next()) {
-			cliente.setNome(resultado.getString("nome"));
-			cliente.setEmail(resultado.getString("telefone"));
-			cliente.setTelefone(resultado.getString("telefone"));
-			cliente.setCpf(resultado.getString("cpf"));
-			cliente.setRg(resultado.getString("rg"));
-			cliente.setDataNascimento(resultado.getString("data_nascimento"));
+			cliente.setNumeroInstalacao(resultado.getString("numero_instalacao"));
+			cliente.setAtualizacaoCadastral(resultado.getString("atualizacao_cadastral"));
+			cliente.setDebitoPendente(resultado.getString("debito_pendente"));
+			
 		}
 		resultado.close();
 		estrutura.close();
@@ -73,8 +67,8 @@ public class ClienteDAO {
 	public int atualizarCliente (Cliente cliente) throws Exception{
 		PreparedStatement estrutura = con.prepareStatement
 		("UPDATE Pessoa SET email = ? WHERE NR_CLIENTE =?");
-		estrutura.setString(1, cliente.getEmail());
-		estrutura.setInt(2, cliente.getId());
+		estrutura.setString(1, cliente.getDebitoPendente());
+		estrutura.setString(2, cliente.getAtualizacaoCadastral());
 		int z = estrutura.executeUpdate();
 		return z;
 	}

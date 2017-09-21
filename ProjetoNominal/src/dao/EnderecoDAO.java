@@ -22,7 +22,7 @@ public EnderecoDAO() throws Exception {
     }
     public String gravar(Endereco end) throws Exception {
         PreparedStatement estrutura = null;
-        estrutura = con.prepareStatement("insert into TB_TAP_ENDERECO(CEP,RUA,NUMERO,CIDADE) VALUES (?,?,?,?)");
+        estrutura = con.prepareStatement("insert into Pessoa(CEP,RUA,NUMERO,CIDADE) VALUES (?,?,?,?)");
         estrutura.setString(1,end.getCep());
         estrutura.setString(2, end.getRua());
         estrutura.setInt(3, end.getNumero());
